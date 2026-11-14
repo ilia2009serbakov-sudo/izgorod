@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Изумрудный город — пространство счастливого детства</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #174B3D;
+      --green-dark: #10392F;
+      --accent: #D9A84E;
+      --paper: #F5F2E9;
+      --ink: #233A31;
+      --muted: #7C887E;
+      --line: rgba(23, 75, 61, .18);
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Manrope", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 0 6.2%;
+    }
+
+    /* HEADER */
+
+    .header {
+      min-height: 94px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--green);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .brand-name {
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: .95;
+    }
+
+    .brand-caption {
+      margin-top: 5px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #52665B;
+    }
+
+    .nav a {
+      transition: color .2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--green);
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .phone {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .header-vk {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .header-vk:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr);
+      gap: 5%;
+      padding: 72px 0 55px;
+      min-height: 625px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 12px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 29px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-top: 27px;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: clamp(65px, 8.1vw, 116px);
+      font-weight: 500;
+      letter-spacing: -4px;
+      line-height: .78;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero h1 .second-line {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 450px;
+      margin: 35px 0 0;
+      color: #5F7167;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .hero-description strong {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 30px 0 0;
+    }
+
+    .main-button {
+      min-height: 54px;
+      padding: 0 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      transition: background .2s, transform .2s;
+    }
+
+    .main-button:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+    }
+
+    .main-button span {
+      color: var(--accent);
+      font-size: 19px;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    /* ILLUSTRATION */
+
+    .hero-art {
+      position: relative;
+      min-width: 0;
+      height: 465px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .art-frame {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      height: 430px;
+      background: #E9E6D9;
+      overflow: hidden;
+    }
+
+    .art-label {
+      position: absolute;
+      top: 22px;
+      left: 23px;
+      z-index: 2;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .art-number {
+      position: absolute;
+      right: 23px;
+      bottom: 18px;
+      z-index: 2;
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 23px;
+      font-style: italic;
+    }
+
+    .art-frame svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .art-stamp {
+      position: absolute;
+      z-index: 3;
+      left: -23px;
+      bottom: 50px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.05;
+      transform: rotate(-10deg);
+      box-shadow: 0 8px 25px rgba(30, 50, 35, .12);
+    }
+
+    .art-side-note {
+      position: absolute;
+      right: -31px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      transform-origin: center;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    /* INFO STRIP */
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr;
+      background: var(--green);
+      color: white;
+      padding: 27px 30px;
+      gap: 18px;
+    }
+
+    .info-item {
+      min-width: 0;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255,255,255,.22);
+    }
+
+    .info-item:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .info-number {
+      display: block;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 35px;
+      line-height: 1;
+    }
+
+    .info-text {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255,255,255,.78);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    /* BOTTOM */
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 38px 0 45px;
+    }
+
+    .bottom-title {
+      color: var(--green);
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .bottom-text {
+      max-width: 490px;
+      margin-top: 9px;
+      color: #6D7B71;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .addresses {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      justify-content: center;
+    }
+
+    .address-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .address-icon {
+      width: 29px;
+      height: 29px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 1441px) {
+      .hero h1 {
+        font-size: 116px;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .page {
+        padding: 0 4%;
+      }
+
+      .nav {
+        gap: 18px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(270px, .85fr);
+        gap: 3%;
+      }
+
+      .hero h1 {
+        font-size: clamp(62px, 8vw, 88px);
+      }
+
+      .art-frame {
+        height: 370px;
+      }
+
+      .hero-art {
+        height: 400px;
+      }
+
+      .art-stamp {
+        width: 92px;
+        height: 92px;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 0 22px;
+      }
+
+      .header {
+        min-height: 76px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .brand-mark {
+        width: 37px;
+        height: 37px;
+        font-size: 25px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .phone {
+        font-size: 11px;
+      }
+
+      .header-vk {
+        width: 33px;
+        height: 33px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 55px 0 34px;
+      }
+
+      .hero h1 {
+        font-size: clamp(67px, 15vw, 100px);
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        margin-left: 5%;
+        margin-top: 27px;
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        margin-left: 5%;
+        margin-top: 23px;
+      }
+
+      .hero-art {
+        width: 88%;
+        max-width: 440px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 5px auto 0;
+      }
+
+      .art-frame {
+        height: 100%;
+      }
+
+      .art-stamp {
+        left: -17px;
+        bottom: 35px;
+      }
+
+      .art-side-note {
+        right: -30px;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr 1fr;
+        padding: 24px;
+        gap: 23px 15px;
+      }
+
+      .info-item:nth-child(3) {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .info-number {
+        font-size: 31px;
+      }
+
+      .bottom {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 30px 0 35px;
+      }
+
+      .bottom-title {
+        font-size: 27px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .page {
+        padding: 0 17px;
+      }
+
+      .header-contact {
+        gap: 8px;
+      }
+
+      .phone {
+        font-size: 10px;
+      }
+
+      .hero h1 {
+        font-size: 61px;
+      }
+
+      .hero-description {
+        margin-left: 0;
+      }
+
+      .hero-actions {
+        margin-left: 0;
+      }
+
+      .main-button {
+        padding: 0 17px;
+        font-size: 10px;
+      }
+
+      .art-stamp {
+        width: 78px;
+        height: 78px;
+        font-size: 13px;
+      }
+
+      .info-strip {
+        padding: 20px 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+      <a href="#" class="brand">
+        <div class="brand-mark">И</div>
+        <div>
+          <div class="brand-name">Изумрудный город</div>
+          <div class="brand-caption">Детский клуб · Саратов</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#about">О клубе</a>
+        <a href="#programs">Наш подход</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-contact">
+        <a class="phone" href="tel:+79272235982">+7 927 223-59-82</a>
+        <a class="header-vk" href="https://vk.ru/izumrudniy_gorod" target="_blank" rel="noopener">VK</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+
+        <div class="hero-copy">
+          <div class="eyebrow">Место, где растёт детство</div>
+
+          <h1>
+            <span>Изумрудный</span>
+            <span class="second-line">город</span>
+          </h1>
+
+          <p class="hero-description">
+            Пространство, в котором можно быть собой,
+            исследовать мир и каждый день открывать
+            что-то новое. <strong>Бережное детство с любовью
+            к каждому маленькому человеку.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="main-button" href="https://vk.ru/im?sel=-195864474" target="_blank" rel="noopener">
+              Записаться на экскурсию <span>↗</span>
+            </a>
+            <div class="small-note">
+              Первая встреча<br>
+              совершенно бесплатна
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="art-frame">
+            <div class="art-label">Наш маленький мир · № 01</div>
+
+            <svg viewBox="0 0 430 430" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Иллюстрация сказочного города с деревьями и домиками">
+              <rect width="430" height="430" fill="#E9E6D9"/>
+
+              <!-- Солнце -->
+              <circle cx="328" cy="102" r="49" fill="#D9A84E"/>
+
+              <!-- Дальние холмы -->
+              <path d="M0 246C57 198 105 215 157 239C214 266 256 194 319 211C365 223 390 252 430 240V430H0V246Z" fill="#C9D1B9"/>
+
+              <!-- Задний дом -->
+              <path d="M213 202L285 146L357 202V321H213V202Z" fill="#F5F2E9"/>
+              <path d="M197 203L285 132L373 203" stroke="#174B3D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="238" y="224" width="34" height="43" fill="#D9A84E"/>
+              <rect x="298" y="224" width="34" height="43" fill="#D9A84E"/>
+              <path d="M275 321V276C275 263 285 254 297 254C309 254 319 263 319 276V321" fill="#174B3D"/>
+
+              <!-- Передний дом -->
+              <path d="M30 252L104 191L178 252V365H30V252Z" fill="#174B3D"/>
+              <path d="M15 253L104 178L193 253" stroke="#10392F" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="55" y="269" width="34" height="39" fill="#D9A84E"/>
+              <rect x="119" y="269" width="34" height="39" fill="#D9A84E"/>
+              <path d="M86 365V317C86 303 96 293 108 293C120 293 130 303 130 317V365" fill="#E9E6D9"/>
+
+              <!-- Дерево слева -->
+              <path d="M20 366H9L18 309H30L20 366Z" fill="#174B3D"/>
+              <circle cx="24" cy="294" r="28" fill="#174B3D"/>
+              <circle cx="7" cy="311" r="19" fill="#376D53"/>
+              <circle cx="42" cy="315" r="17" fill="#376D53"/>
+
+              <!-- Дерево справа -->
+              <path d="M384 371H372L383 300H396L384 371Z" fill="#174B3D"/>
+              <circle cx="389" cy="286" r="31" fill="#174B3D"/>
+              <circle cx="366" cy="305" r="18" fill="#376D53"/>
+              <circle cx="411" cy="307" r="18" fill="#376D53"/>
+
+              <!-- Дорожка -->
+              <path d="M160 430C172 391 202 366 244 350C275 338 307 339 332 349" stroke="#D9A84E" stroke-width="12" stroke-linecap="round"/>
+
+              <!-- Маленькие детали -->
+              <circle cx="205" cy="292" r="5" fill="#D9A84E"/>
+              <circle cx="225" cy="308" r="4" fill="#174B3D"/>
+              <path d="M190 345L195 334L200 345" stroke="#174B3D" stroke-width="2" stroke-linecap="round"/>
+              <path d="M344 173C350 164 359 164 365 173" stroke="#174B3D" stroke-width="2" stroke-linecap="round"/>
+              <path d="M369 180C375 171 384 171 390 180" stroke="#174B3D" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- Текстовая метка -->
+              <path d="M28 28H82" stroke="#174B3D" stroke-width="1"/>
+              <circle cx="90" cy="28" r="3" fill="#D9A84E"/>
+            </svg>
+
+            <div class="art-number">Саратов · 2008</div>
+          </div>
+
+          <div class="art-stamp">
+            16 лет<br>рядом<br>с детьми
+          </div>
+
+          <div class="art-side-note">МАЛЕНЬКИЕ ОТКРЫТИЯ КАЖДЫЙ ДЕНЬ</div>
+        </div>
+
+      </section>
+
+      <section class="info-strip" id="programs">
+        <div class="info-item">
+          <span class="info-number">16 лет</span>
+          <span class="info-text">Заботимся о детях<br>и помогаем им расти</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-number">140 м²</span>
+          <span class="info-text">Пространства для игр,<br>занятий и открытий</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-number">5 раз</span>
+          <span class="info-text">Полноценное питание<br>в течение дня</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-number">11</span>
+          <span class="info-text">Направлений занятий<br>для развития детей</span>
+        </div>
+      </section>
+
+      <section class="bottom" id="contacts">
+        <div>
+          <h2 class="bottom-title">Детство, в котором хорошо.</h2>
+          <p class="bottom-text">
+            Монтессори-занятия, элементы Вальдорфской педагогики,
+            творчество и забота профессиональных педагогов.
+            Работаем с 8:00 до 18:30.
+          </p>
+        </div>
+
+        <div class="addresses">
+          <div class="address-row">
+            <span class="address-icon">⌖</span>
+            <span>Саратов, ул. Мичурина, 113</span>
+          </div>
+          <div class="address-row">
+            <span class="address-icon">⌖</span>
+            <span>Саратов, проспект Столыпина, 41</span>
+          </div>
+          <div class="address-row">
+            <span class="address-icon">↗</span>
+            <a href="https://vk.ru/izumrudniy_gorod" target="_blank" rel="noopener">Новости и запись во ВКонтакте</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
